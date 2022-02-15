@@ -1,0 +1,17 @@
+{
+  "name": "elm-calc",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "elm-test"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "elm-test": "^0.19.1-revision7",
+    "vite": "^2.8.0",
+    "vite-plugin-elm": "^2.5.1"
+  }
+}
