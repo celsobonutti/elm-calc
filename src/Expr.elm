@@ -8,14 +8,15 @@ import Tuple exposing (first, mapBoth, second)
 type Identifier
     = Identifier String
 
+type Measure
+    = C Currency
 
 type Expr
     = Assign { id : Identifier, value : Expr }
     | Sum Expr Expr
     | Mul Expr Expr
-    | Money Int Currency
+    | Number Int (Maybe Measure)
     | Id Identifier
-
 
 type alias VariableMap =
     Dict Identifier Int
@@ -52,12 +53,11 @@ runState variables expr =
         Mul _ _ ->
             Debug.todo "TODO"
 
-        Money x _ ->
+        Number x _ ->
             ( Just x, variables )
 
         Id identifier ->
             ( Dict.get identifier variables, variables )
-
 
 evalState : VariableMap -> Expr -> Maybe Int
 evalState variables =
